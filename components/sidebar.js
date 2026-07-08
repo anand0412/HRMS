@@ -13,9 +13,9 @@ const sidebar = `
 
             <div class="logo-text">
 
-                <h2>ADA HRMS</h2>
+                <h2>HRMS Pro</h2>
 
-                <p>Human Resource Management</p>
+                <p>Enterprise HR Management</p>
 
             </div>
 
@@ -210,7 +210,7 @@ const sidebar = `
 
             <div>
 
-                <h4>Administrator</h4>
+                <h4>System Admin</h4>
 
                 <small>Super Admin</small>
 
@@ -220,7 +220,7 @@ const sidebar = `
 
         <div class="version">
 
-            Version 2.0
+            v1.0 Prototype
 
         </div>
 
