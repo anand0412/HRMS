@@ -1,0 +1,95 @@
+/* ==========================================
+   ADA HRMS Design System
+   Version : 1.0
+========================================== */
+
+:root{
+
+    /* ===========================
+       Brand Colors
+    =========================== */
+
+    --primary:#2563EB;
+    --primary-light:#3B82F6;
+    --primary-dark:#1D4ED8;
+
+    --secondary:#0F172A;
+    --secondary-light:#1E293B;
+
+    --success:#22C55E;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+    --info:#06B6D4;
+
+    /* ===========================
+       Backgrounds
+    =========================== */
+
+    --bg:#F8FAFC;
+    --bg-light:#FFFFFF;
+    --bg-dark:#F1F5F9;
+
+    /* ===========================
+       Text
+    =========================== */
+
+    --text:#1E293B;
+    --text-light:#64748B;
+    --text-white:#FFFFFF;
+
+    /* ===========================
+       Borders
+    =========================== */
+
+    --border:#E2E8F0;
+    --border-light:#CBD5E1;
+
+    /* ===========================
+       Sidebar
+    =========================== */
+
+    --sidebar-width:270px;
+    --sidebar-collapse:90px;
+
+    /* ===========================
+       Header
+    =========================== */
+
+    --header-height:72px;
+
+    /* ===========================
+       Radius
+    =========================== */
+
+    --radius-xs:6px;
+    --radius-sm:10px;
+    --radius-md:16px;
+    --radius-lg:20px;
+    --radius-xl:28px;
+
+    /* ===========================
+       Shadows
+    =========================== */
+
+    --shadow-sm:
+    0 2px 8px rgba(15,23,42,.05);
+
+    --shadow-md:
+    0 8px 20px rgba(15,23,42,.08);
+
+    --shadow-lg:
+    0 15px 40px rgba(15,23,42,.12);
+
+    /* ===========================
+       Transition
+    =========================== */
+
+    --transition:.30s ease;
+
+    /* ===========================
+       Font
+    =========================== */
+
+    --font:'Inter',sans-serif;
+
+}

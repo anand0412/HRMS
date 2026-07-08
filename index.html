@@ -1,429 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HRMS — Dashboard</title>
-<style>
-/* ===== DESIGN TOKENS ===== */
-:root {
-  --primary: #1a4d8f;
-  --primary-light: #2c6cbb;
-  --primary-dark: #0f3361;
-  --accent: #2196f3;
-  --accent-hover: #1976d2;
-  --bg: #f4f7fa;
-  --card-bg: #ffffff;
-  --border: #dce4ed;
-  --text: #2c3e50;
-  --text-muted: #6b7c93;
-  --text-light: #9aaabf;
-  --sidebar-bg: #152d52;
-  --sidebar-text: #a3b8d4;
-  --sidebar-active: #2196f3;
-  --success: #27ae60;
-  --warning: #f39c12;
-  --danger: #e74c3c;
-  --radius: 6px;
-  --shadow: 0 1px 4px rgba(0,0,0,0.06);
-  --shadow-hover: 0 2px 12px rgba(0,0,0,0.10);
-}
 
-/* ===== RESET ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1.5;
-}
-a { text-decoration: none; color: var(--accent); }
+<title>ADA HRMS</title>
 
-/* ===== HEADER ===== */
-.header {
-  height: 56px;
-  background: var(--card-bg);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: var(--shadow);
-}
-.header-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.header-brand .logo {
-  width: 32px; height: 32px;
-  background: var(--primary);
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-weight: 700; font-size: 16px;
-}
-.header-brand .app-name {
-  font-size: 16px; font-weight: 600; color: var(--primary-dark);
-}
-.header-search {
-  flex: 0 1 360px;
-  position: relative;
-}
-.header-search input {
-  width: 100%;
-  height: 34px;
-  padding: 0 12px 0 36px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg);
-  font-size: 13px;
-  color: var(--text);
-  outline: none;
-  transition: border 0.2s;
-}
-.header-search input:focus { border-color: var(--accent); }
-.header-search::before {
-  content: '🔍';
-  position: absolute;
-  left: 12px; top: 50%;
-  transform: translateY(-50%);
-  font-size: 13px;
-  opacity: 0.5;
-}
-.header-actions {
-  display: flex; align-items: center; gap: 16px;
-}
-.header-icon-btn {
-  position: relative;
-  width: 36px; height: 36px;
-  border: none; background: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 18px;
-  color: var(--text-muted);
-  transition: background 0.15s;
-}
-.header-icon-btn:hover { background: var(--bg); }
-.header-icon-btn .badge {
-  position: absolute;
-  top: 4px; right: 4px;
-  width: 8px; height: 8px;
-  background: var(--danger);
-  border-radius: 50%;
-}
-.header-user {
-  display: flex; align-items: center; gap: 8px;
-  padding-left: 16px;
-  border-left: 1px solid var(--border);
-}
-.header-user .avatar {
-  width: 32px; height: 32px;
-  background: var(--primary);
-  border-radius: 50%;
-  color: white;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 600; font-size: 13px;
-}
-.header-user .user-name {
-  font-size: 13px; font-weight: 500;
-}
-.header-user .user-role {
-  font-size: 11px; color: var(--text-muted);
-}
+<!-- Google Font -->
 
-/* ===== LAYOUT ===== */
-.layout {
-  display: flex;
-  min-height: calc(100vh - 56px);
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-/* ===== SIDEBAR ===== */
-.sidebar {
-  width: 240px;
-  background: var(--sidebar-bg);
-  padding: 16px 0;
-  flex-shrink: 0;
-  overflow-y: auto;
-}
-.sidebar-section {
-  margin-bottom: 8px;
-}
-.sidebar-section-label {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-light);
-  padding: 12px 20px 6px;
-}
-.sidebar-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 20px;
-  color: var(--sidebar-text);
-  font-size: 13px;
-  cursor: pointer;
-  border-left: 3px solid transparent;
-  transition: all 0.15s;
-}
-.sidebar-link:hover {
-  background: rgba(255,255,255,0.05);
-  color: white;
-}
-.sidebar-link.active {
-  background: rgba(33,150,243,0.12);
-  border-left-color: var(--sidebar-active);
-  color: white;
-  font-weight: 500;
-}
-.sidebar-link .icon {
-  width: 18px; text-align: center; font-size: 15px;
-}
-.sidebar-sublink {
-  padding-left: 48px;
-  font-size: 12.5px;
-  color: #8ba3c2;
-}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-/* ===== MAIN CONTENT ===== */
-.main {
-  flex: 1;
-  padding: 24px 28px;
-  overflow-x: hidden;
-}
-.page-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--primary-dark);
-  margin-bottom: 4px;
-}
-.page-subtitle {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-/* ===== KPI CARDS ===== */
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
-}
-.kpi-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-  box-shadow: var(--shadow);
-  transition: box-shadow 0.2s;
-}
-.kpi-card:hover { box-shadow: var(--shadow-hover); }
-.kpi-card .kpi-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 500;
-  margin-bottom: 8px;
-  display: flex; align-items: center; gap: 8px;
-}
-.kpi-card .kpi-icon {
-  width: 28px; height: 28px;
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
-}
-.kpi-icon.blue { background: #e3f2fd; color: #1976d2; }
-.kpi-icon.green { background: #e8f5e9; color: #2e7d32; }
-.kpi-icon.amber { background: #fff8e1; color: #f57f17; }
-.kpi-icon.purple { background: #f3e5f5; color: #7b1fa2; }
-.kpi-card .kpi-value {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-.kpi-card .kpi-trend {
-  font-size: 11px;
-  display: flex; align-items: center; gap: 4px;
-}
-.kpi-trend.up { color: var(--success); }
-.kpi-trend.down { color: var(--danger); }
-.kpi-trend.flat { color: var(--text-muted); }
+<!-- Bootstrap -->
 
-/* ===== CONTENT GRID ===== */
-.content-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
-}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-/* ===== CARD ===== */
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-.card-header {
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.card-header h3 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--primary-dark);
-}
-.card-header .card-action {
-  font-size: 12px;
-  color: var(--accent);
-  cursor: pointer;
-  font-weight: 500;
-}
-.card-body { padding: 20px; }
+<!-- Font Awesome -->
 
-/* ===== BAR CHART (CSS ONLY) ===== */
-.chart-container {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
-  height: 200px;
-  padding: 16px 0;
-  gap: 12px;
-}
-.chart-bar-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  flex: 1;
-}
-.chart-bar {
-  width: 60%;
-  max-width: 36px;
-  background: linear-gradient(180deg, var(--accent), var(--primary));
-  border-radius: 4px 4px 0 0;
-  position: relative;
-  transition: opacity 0.2s;
-  min-height: 4px;
-}
-.chart-bar:hover { opacity: 0.8; }
-.chart-bar .bar-value {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-.chart-bar-group .bar-label {
-  font-size: 11px;
-  color: var(--text-muted);
-}
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-/* ===== ACTIVITY LIST ===== */
-.activity-list { list-style: none; }
-.activity-item {
-  display: flex;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
-}
-.activity-item:last-child { border-bottom: none; }
-.activity-dot {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
-  flex-shrink: 0;
-}
-.activity-dot.approve { background: #e8f5e9; color: var(--success); }
-.activity-dot.reject { background: #fce4ec; color: var(--danger); }
-.activity-dot.user { background: #e3f2fd; color: var(--accent); }
-.activity-dot.payroll { background: #fff8e1; color: var(--warning); }
-.activity-content { flex: 1; }
-.activity-text { font-size: 13px; color: var(--text); }
-.activity-time { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+<!-- Bootstrap Icons -->
 
-/* ===== SUMMARY BLOCKS ===== */
-.summary-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
-}
-.summary-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 20px;
-}
-.summary-card h4 {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--primary-dark);
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
-}
-.summary-row:last-child { border-bottom: none; }
-.summary-row .label { font-size: 12.5px; color: var(--text-muted); }
-.summary-row .value { font-size: 13px; font-weight: 600; color: var(--text); }
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-/* ===== STATUS BADGE ===== */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
-}
-.badge.approved { background: #e8f5e9; color: var(--success); }
-.badge.pending { background: #fff8e1; color: var(--warning); }
-.badge.rejected { background: #fce4ec; color: var(--danger); }
+<!-- CSS -->
 
-/* ===== ALERTS ===== */
-.alert-item {
-  display: flex;
-  gap: 12px;
-  padding: 12px;
-  border-radius: var(--radius);
-  margin-bottom: 8px;
-  font-size: 13px;
-}
-.alert-item.warning { background: #fff8e1; border-left: 3px solid var(--warning); }
-.alert-item.info { background: #e3f2fd; border-left: 3px solid var(--accent); }
-.alert-item.danger { background: #fce4ec; border-left: 3px solid var(--danger); }
-.alert-item:last-child { margin-bottom: 0; }
+<link rel="stylesheet" href="assets/css/variables.css">
 
-/* ===== SCROLLBAR ===== */
-.sidebar::-webkit-scrollbar { width: 4px; }
-.sidebar::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
-</style>
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="stylesheet" href="assets/css/components.css">
+
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<link rel="stylesheet" href="assets/css/animations.css">
+
 </head>
+
 <body>
 
-<!-- ===== HEADER ===== -->
-<div class="header">
-  <div class
+<!-- Loader -->
+
+<div id="loader">
+
+<div class="spinner-border text-primary"></div>
+
+<p>Loading HRMS...</p>
+
+</div>
+
+<!-- Wrapper -->
+
+<div class="app">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h3>ADA HRMS</h3>
+
+</div>
+
+<ul>
+
+<li><i class="fa-solid fa-gauge"></i> Dashboard</li>
+
+<li><i class="fa-solid fa-user-shield"></i> Permission</li>
+
+<li><i class="fa-solid fa-building"></i> Masters</li>
+
+<li><i class="fa-solid fa-users"></i> Employee</li>
+
+<li><i class="fa-solid fa-wallet"></i> Payroll</li>
+
+<li><i class="fa-solid fa-chart-column"></i> Reports</li>
+
+<li><i class="fa-solid fa-gear"></i> Settings</li>
+
+</ul>
+
+</aside>
+
+<!-- Main -->
+
+<main class="main">
+
+<header class="topbar">
+
+<h4>Ayodhya Development Authority HRMS</h4>
+
+<div class="profile">
+
+<i class="fa-solid fa-user-circle"></i>
+
+Administrator
+
+</div>
+
+</header>
+
+<section class="content">
+
+<h2>Welcome</h2>
+
+<p>
+
+Your redesigned HRMS starts from here.
+
+</p>
+
+</section>
+
+<footer>
+
+© 2026 Ayodhya Development Authority
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+<script src="assets/js/sidebar.js"></script>
+
+<script src="assets/js/dashboard.js"></script>
+
+</body>
+
+</html>
