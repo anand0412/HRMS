@@ -1,0 +1,355 @@
+/*=========================================
+    ADA HRMS - Enterprise Sidebar
+==========================================*/
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:280px;
+
+    height:100vh;
+
+    background:#0F172A;
+
+    color:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    overflow:hidden;
+
+    box-shadow:8px 0 25px rgba(0,0,0,.08);
+
+    z-index:1000;
+
+}
+
+/* Logo Area */
+
+.sidebar-top{
+
+    padding:24px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#2563EB,#0EA5E9);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+}
+
+.logo-text h2{
+
+    margin:0;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.logo-text p{
+
+    margin:4px 0 0;
+
+    font-size:12px;
+
+    color:#94A3B8;
+
+}
+
+#collapseBtn{
+
+    margin-top:20px;
+
+    width:100%;
+
+    border:none;
+
+    background:#1E293B;
+
+    color:white;
+
+    height:42px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#collapseBtn:hover{
+
+    background:#2563EB;
+
+}
+
+/* Search */
+
+.menu-search{
+
+    padding:18px;
+
+}
+
+.menu-search input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    height:44px;
+
+    border-radius:12px;
+
+    background:#1E293B;
+
+    color:white;
+
+    padding:0 15px;
+
+    font-size:14px;
+
+}
+
+.menu-search input::placeholder{
+
+    color:#94A3B8;
+
+}
+
+/* Menu */
+
+.menu-title{
+
+    padding:10px 24px;
+
+    color:#64748B;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    font-weight:600;
+
+}
+
+.menu{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+    overflow-y:auto;
+
+    flex:1;
+
+}
+
+.menu li{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 24px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    position:relative;
+
+}
+
+.menu li i:first-child{
+
+    width:22px;
+
+    text-align:center;
+
+}
+
+.menu li span{
+
+    flex:1;
+
+}
+
+.menu li:hover{
+
+    background:#1E293B;
+
+}
+
+.menu li.active{
+
+    background:#2563EB;
+
+}
+
+.menu li.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:5px;
+
+    height:100%;
+
+    background:white;
+
+}
+
+/* Arrow */
+
+.arrow{
+
+    font-size:12px;
+
+}
+
+/* Submenu */
+
+.submenu{
+
+    display:none;
+
+    flex-direction:column;
+
+    background:#111827;
+
+}
+
+.submenu a{
+
+    text-decoration:none;
+
+    color:#CBD5E1;
+
+    padding:12px 60px;
+
+    font-size:14px;
+
+    transition:.2s;
+
+}
+
+.submenu a:hover{
+
+    color:white;
+
+    background:#1E293B;
+
+}
+
+/* Footer */
+
+.sidebar-footer{
+
+    padding:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.user-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.avatar{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    background:#2563EB;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+}
+
+.user-box h4{
+
+    margin:0;
+
+    font-size:15px;
+
+}
+
+.user-box small{
+
+    color:#94A3B8;
+
+}
+
+.version{
+
+    margin-top:18px;
+
+    color:#64748B;
+
+    font-size:12px;
+
+}
