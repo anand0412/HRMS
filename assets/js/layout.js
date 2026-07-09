@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded",()=>{
 
     const sidebar=document.createElement("script");
 
@@ -11,5 +11,15 @@ window.addEventListener("DOMContentLoaded", () => {
     header.src="components/header.js";
 
     document.body.appendChild(header);
+
+    if(document.getElementById("dashboard")){
+
+        const dashboard=document.createElement("script");
+
+        dashboard.src="components/dashboard.js";
+
+        document.body.appendChild(dashboard);
+
+    }
 
 });
